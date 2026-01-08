@@ -81,34 +81,8 @@ Entries are stored in JSONL (one JSON object per line):
 {"timestamp": "2024-01-08T14:00:00+00:00", "entry": "Tagged entry", "tags": ["work", "python"]}
 ```
 
-**Why JSONL?**
-- Each line is independent (corruption doesn't destroy everything)
-- Append-only (just add to end of file)
-- Human-readable
-- Easy to process with other tools
-
-## Learning Path
-
-If you're learning Python, study the files in this order:
-
-1. **journal-lite.py** — Core concepts:
-   - Argument parsing with `argparse`
-   - File I/O with `pathlib` and context managers (`with`)
-   - JSON serialization
-   - Function organization
-
-2. **journal.py** — Advanced concepts:
-   - Generators (`yield`)
-   - Type hints (`Optional`, `Generator`)
-   - Date parsing and comparison
-   - Dictionary aggregation
-   - String methods for search
 
 ## Requirements
 
 - Python 3.9+
 - No external dependencies (standard library only)
-
-## License
-
-MIT
