@@ -6,8 +6,8 @@ A command-line journal tool that stores entries in JSONL format.
 
 | File | Description | Best For |
 |------|-------------|----------|
-| `journal-lite.py` | Minimal version (~70 lines) | Learning basics, simple use |
-| `journal.py` | Full-featured version (~300 lines) | Daily use, learning advanced concepts |
+| `journal-lite.py` | Minimal version (~70 lines) | basics, simple use |
+| `journal.py` | Full-featured version (~300 lines) | Daily use, advanced concepts |
 
 ## Quick Start
 
