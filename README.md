@@ -1,6 +1,6 @@
 # append-only-journal
 
-A command-line journal tool that stores entries in JSONL format. Inspired by append-only log systems like Vivendur.
+A command-line journal tool that stores entries in JSONL format.
 
 ## Two Versions
 
