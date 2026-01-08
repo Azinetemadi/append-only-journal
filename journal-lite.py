@@ -12,7 +12,7 @@ def iso_timestamp() -> str:
 
 
 def append_entry(log_path: Path, text: str) -> None:
-log_path.parent.mkdir(parents=True, exist_ok=True)
+ log_path.parent.mkdir(parents=True, exist_ok=True)
   payload = {"timestamp": iso_timestamp(), "entry": text}
   with log_path.open("a", encoding="utf-8") as handle:
    handle.write(json.dumps(payload, ensure_ascii=True) + "\n") # ensure_ascii=True makes files less readable
@@ -32,14 +32,14 @@ def replay_entries(log_path: Path) -> int:
         except json.JSONDecodeError:
             print(f"Skipping invalid JSON on line {index}.", file=sys.stderr)
             continue
-           timestamp = record.get("timestamp", "unknown_time")
+        timestamp = record.get("timestamp", "unknown_time")
            entry = record.get("entry","")
            print(f"{timestamp} | {entry}")
-    return 0
+  return 0
 
 
 def build_parser() -> argparse.ArgumentParser:
-  parser = argparser.ArgumentParser(
+  parser = argparse.ArgumentParser(
     description="Append-only CLI journal log with JSONL persistence."
   )
   parser.add_argument(
