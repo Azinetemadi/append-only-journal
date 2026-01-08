@@ -11,8 +11,8 @@ def iso_timestamp() -> str:
   return datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds")
 
 
-def append_entry(log_path: Path, text: str) -> None;
- log_path.parent.mkdir(parents=true, exist_ok=true)
+def append_entry(log_path: Path, text: str) -> None:
+log_path.parent.mkdir(parents=True, exist_ok=True)
   payload = {"timestamp": iso_timestamp(), "entry": text}
   with log_path.open("a", encoding="utf-8") as handle:
   handle.write(json.dumps(payload, ensure_ascii=True) + "\n") # ensure_ascii=True makes files less readable
