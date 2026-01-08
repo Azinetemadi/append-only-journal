@@ -22,10 +22,7 @@ from typing import Generator, Optional
 
 DEFAULT_LOG = "journal.jsonl"
 
-
-# =============================================================================
 # CORE DATA FUNCTIONS
-# =============================================================================
 
 def iso_timestamp() -> str:
     """Generate ISO 8601 timestamp with local timezone."""
@@ -60,7 +57,7 @@ def load_entries(log_path: Path) -> Generator[dict, None, None]:
     - Returns on completion: None
     """
     if not log_path.exists():
-        return  # Empty generator - yields nothing
+        return  # Empty generator
     
     with log_path.open("r", encoding="utf-8") as handle:
         for line_num, line in enumerate(handle, start=1):
@@ -74,9 +71,7 @@ def load_entries(log_path: Path) -> Generator[dict, None, None]:
                 print(f"Warning: Invalid JSON on line {line_num}", file=sys.stderr)
 
 
-# =============================================================================
 # COMMAND HANDLERS
-# =============================================================================
 
 def cmd_add(log_path: Path, text: str, tags: Optional[list[str]] = None) -> int:
     """
@@ -276,9 +271,7 @@ def cmd_export(log_path: Path, format: str = "markdown") -> int:
     return 1
 
 
-# =============================================================================
 # ARGUMENT PARSER
-# =============================================================================
 
 def build_parser() -> argparse.ArgumentParser:
     """
@@ -288,7 +281,7 @@ def build_parser() -> argparse.ArgumentParser:
     """
     parser = argparse.ArgumentParser(
         description="Append-only CLI journal with JSONL persistence.",
-        # NEW: Custom formatter for better help text
+        # Custom formatter for better help text
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -352,9 +345,8 @@ Examples:
     return parser
 
 
-# =============================================================================
+
 # MAIN ENTRY POINT
-# =============================================================================
 
 def main() -> int:
     """Main entry point - parse args and dispatch to handlers."""
@@ -362,8 +354,7 @@ def main() -> int:
     args = parser.parse_args()
     log_path = Path(args.log)
     
-    # NEW PATTERN: Dictionary dispatch instead of if/elif chain
-    # This is cleaner when you have many commands
+    # Dictionary dispatch instead of if/elif chain
     
     if args.command == "add":
         tags = args.tags.split(",") if args.tags else None
