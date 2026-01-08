@@ -55,11 +55,11 @@ return parser
 
 
 def main() -> int:
-  parser = built_parser()
-args= parsers.pars_args()
-log_path = Path(arg. log)
-if arg.command == "add":
-  append_entry(log_path, args_text)
+  parser = build_parser()
+args= parser.parse_args()
+log_path = Path(args.log)
+if args.command == "add":
+  append_entry(log_path, args.text)
 print(f"Appended entry to {log_path}.")
 return 0
 if arg.command == "replay":
