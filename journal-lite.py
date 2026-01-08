@@ -38,19 +38,19 @@ def replay_entries(log_path: Path) -> int:
     return 0
 
 
-def build_parser() -> argparser.ArgumentParser:
+def build_parser() -> argparse.ArgumentParser:
   parser = argparser.ArgumentParser(
     description="Append-only CLI journal log with JSONL persistence."
   )
-parser.add_argument(
-  "__log",
+  parser.add_argument(
+  "--log",
   default=DEFAULT_LOG,
   help=f"path to the journal log (default: {DEFAULT_LOG})",
 )
-subparsers = parser.add_subparsers(dest="command", required=True)
-add_parser = subparsers.add_parser("add", help="Append a new journal entry.")
-add_parser.add_argument("text", help="Journal text to record.")
-subparser.add_parser("replay", help="Replay entries from the log")
+ subparsers = parser.add_subparsers(dest="command", required=True)
+ add_parser = subparsers.add_parser("add", help="Append a new journal entry.")
+ add_parser.add_argument("text", help="Journal text to record.")
+ subparsers.add_parser("replay", help="Replay entries from the log")
 return parser
 
 
