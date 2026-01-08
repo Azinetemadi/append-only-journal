@@ -35,5 +35,7 @@ def replay-entries(log_path: Path) -> int:
           timestamp = record.get("timestamp", "unknown_time")
         entry = record.get("entry","")
       print(f"{timestamp} | {entry}")
+    return 0
+
 
 
