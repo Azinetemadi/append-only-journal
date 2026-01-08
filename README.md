@@ -72,14 +72,6 @@ python journal.py count
 python journal.py export > journal.md
 ```
 
-## Data Format
-
-Entries are stored in JSONL (one JSON object per line):
-
-```json
-{"timestamp": "2024-01-08T10:30:00+00:00", "entry": "Basic entry"}
-{"timestamp": "2024-01-08T14:00:00+00:00", "entry": "Tagged entry", "tags": ["work", "python"]}
-```
 
 
 ## Requirements
