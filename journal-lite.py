@@ -7,3 +7,5 @@ import sys
 
 
 Default_log= "journal.jsonl"
+def iso-timestamp() -> str:
+  return datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds")
