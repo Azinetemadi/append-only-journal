@@ -51,7 +51,7 @@ def build_parser() -> argparse.ArgumentParser:
   add_parser = subparsers.add_parser("add", help="Append a new journal entry.")
   add_parser.add_argument("text", help="Journal text to record.")
   subparsers.add_parser("replay", help="Replay entries from the log")
-return parser
+ return parser
 
 
 def main() -> int:
