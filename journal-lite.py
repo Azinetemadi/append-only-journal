@@ -22,7 +22,7 @@ def replay_entries(log_path: Path) -> int:
   if not log_path.exists():
     print(f"No log found at {log_path}.", file=sys.stderr)
     return 1
-    with log_path.open("r", endocing="utf-8") as handle:
+  with log_path.open("r", encoding="utf-8") as handle:
       for index, line in enumerate(handle, start=1):
         line = line.strip()
         if not line:
