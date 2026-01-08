@@ -2,11 +2,11 @@
 import argparse
 import json
 from datetime import datetime, timezone
-from pathlib import path
+from pathlib import Path
 import sys
 
 
-Default_log= "journal.jsonl"
+DEFAULT_LOG= "journal.jsonl"
 def iso-timestamp() -> str:
   return datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds")
 
