@@ -32,5 +32,8 @@ def replay-entries(log_path: Path) -> int:
           except json.JSONDecodeError:
             print(f"Skipping invalid JSON on line {index}.", file-sys.stderr)
             continue
-            
-    
+          timestamp = record.get("timestamp", "unknown_time")
+        entry = record.get("entry","")
+      print(f"{timestamp} | {entry}")
+
+
