@@ -56,13 +56,13 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main() -> int:
   parser = build_parser()
-args= parser.parse_args()
+ args= parser.parse_args()
 log_path = Path(args.log)
 if args.command == "add":
   append_entry(log_path, args.text)
 print(f"Appended entry to {log_path}.")
 return 0
-if arg.command == "replay":
+if args.command == "replay":
   return replay_entries(log_path)
 return 1
 if __name__ == "__main__":
